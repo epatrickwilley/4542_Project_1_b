@@ -1,4 +1,5 @@
 // Code to read graph instances from a file.  Uses the Boost Graph Library (BGL).
+//This is the graph matching main file
 
 #include <iostream>
 #include <limits.h>
@@ -39,9 +40,10 @@ struct EdgeProperties
 void initializeGraph(Graph &g, ifstream &fin)
 // Initialize g using data from fin.  
 {
+	int numcolors;
 	int n, e;
 	int j, k;
-
+	fin >> numcolors;
 	fin >> n >> e;
 	Graph::vertex_descriptor v;
 
@@ -72,11 +74,15 @@ int main()
 	char x;
 	ifstream fin;
 	string fileName;
+	int stopper;
 
 	// Read the name of the graph from the keyboard or
 	// hard code it here for testing.
 
-	fileName = "/Users/wmeleis/2560-code/tree2/tree/graph1.txt";
+
+	fileName = "color12-3.input";
+
+	cin >> stopper;
 
 	//   cout << "Enter filename" << endl;
 	//   cin >> fileName;
@@ -98,6 +104,11 @@ int main()
 		cout << "Num edges: " << num_edges(g) << endl;
 		cout << endl;
 
-		// cout << g;
+		cin >> stopper;
+		//cout << g;
+	}
+	catch(int y)
+	{
+		cout << "An exception occured" <<endl;
 	}
 }

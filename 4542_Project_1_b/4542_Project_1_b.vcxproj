@@ -116,6 +116,19 @@
   <ItemGroup>
     <ClInclude Include="d_except.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="color12-3.input" />
+    <None Include="color12-4.input" />
+    <None Include="color192-6.input" />
+    <None Include="color192-7.input" />
+    <None Include="color192-8.input" />
+    <None Include="color24-4.input" />
+    <None Include="color24-5.input" />
+    <None Include="color48-5.input" />
+    <None Include="color48-6.input" />
+    <None Include="color96-6.input" />
+    <None Include="color96-7.input" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
