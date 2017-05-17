@@ -115,18 +115,26 @@ int main()
 
 		for (int i = 0; i < trials; i++) //runs for number of combinations
 		{
+			cout << "Trial:" << i << endl;
 			//check for conflicts
 
-			int j = num_vertices(g);
-			while (i != 0) // creates a base number for the colors 
+			int j = num_vertices(g) - 1;
+			int basenum = i;
+
+			while (basenum != 0 && j > -1) // creates a base number for the colors 
 			{
-				colors[j] = i % numcolors;
-					trials = i / numcolors;
-					j--;
+				colors[j] = basenum % numcolors;
+				basenum = basenum / numcolors;
+				j--;
 			}
 
+			for (int k = 0; k < num_vertices(g); k++)
+			{
+				cout << colors[k];
+			}
+			cout<<endl;
+
 		}
-		//cout << g;
 	}
 	catch(int y)
 	{
