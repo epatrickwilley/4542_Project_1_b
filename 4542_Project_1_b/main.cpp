@@ -5,6 +5,7 @@
 #include <limits.h>
 #include "d_except.h"
 #include <fstream>
+#include <vector>
 
 #include <boost/graph/adjacency_list.hpp>
 
@@ -37,7 +38,7 @@ struct EdgeProperties
 	bool marked;
 };
 
-void initializeGraph(Graph &g, ifstream &fin)
+int initializeGraph(Graph &g, ifstream &fin)
 // Initialize g using data from fin.  
 {
 	int numcolors;
@@ -56,6 +57,8 @@ void initializeGraph(Graph &g, ifstream &fin)
 		fin >> j >> k;
 		add_edge(j, k, g);  // Assumes vertex list is type vecS
 	}
+
+	return numcolors;
 }
 
 void setNodeWeights(Graph &g, int w)
@@ -75,6 +78,8 @@ int main()
 	ifstream fin;
 	string fileName;
 	int stopper;
+	vector<int> colors;
+	int trials = 0;
 
 	// Read the name of the graph from the keyboard or
 	// hard code it here for testing.
@@ -98,17 +103,35 @@ int main()
 	{
 		cout << "Reading graph" << endl;
 		Graph g;
-		initializeGraph(g, fin);
+		int numcolors = initializeGraph(g, fin);
+		colors.resize(num_vertices(g), 0);
+		trials = pow(numcolors, num_vertices(g)); // ex. 3 digit comb lock = 10^3
 
 		cout << "Num nodes: " << num_vertices(g) << endl;
 		cout << "Num edges: " << num_edges(g) << endl;
 		cout << endl;
 
 		cin >> stopper;
+
+		for (int i = 0; i < trials; i++) //runs for number of combinations
+		{
+			//check for conflicts
+
+			int j = num_vertices(g);
+			while (i != 0) // creates a base number for the colors 
+			{
+				colors[j] = i % numcolors;
+					trials = i / numcolors;
+					j--;
+			}
+
+		}
 		//cout << g;
 	}
 	catch(int y)
 	{
 		cout << "An exception occured" <<endl;
 	}
+
+
 }
