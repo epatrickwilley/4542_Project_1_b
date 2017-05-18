@@ -2,4 +2,4 @@ Much like our Exhaustive Knapsack, we needed to test all possible combinations t
 (3 colors) ^ (3 Nodes) = 27 Combinations
 000 001 002 010 011 012 020 021 022 100 101 102 110 … 222
 Where every color is represented with a number.
-This array of states or colors can be mapped easily to the nodes and tested for conflicts. The algorithm stops if a solution with no conflicts is reached.
+This array of states or colors can be mapped easily to the nodes and tested for conflicts. The algorithm stops if a solution with no conflicts is reached or the time limit is hit. Each of these occured once. Color12-3 was small enough that our algorithm went through all of the combinations before exiting, reducing it down to 1 conflict. However, color 12-4 allowed a state of zero conflicts to be reached. This program behaves as a bad hueristic for large instances because of the amount of time it takes. It'll always be biased towrds testing the front nodes.
