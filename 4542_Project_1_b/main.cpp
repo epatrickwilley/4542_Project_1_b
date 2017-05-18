@@ -74,12 +74,15 @@ void optimizeColorConflicts(Graph &g, int timelim, int& numcolors, string name)
 {
    int bestcon = LargeValue, conflicts = 0;
    vector<int> colors, bestcolors;
-   int trials = 0;
+   float trials = 0;
    time_t starttime = clock(), currtime = clock();
    float elapsedtime = 0;
 
    colors.resize(num_vertices(g), 0);
-   trials = (int)pow(numcolors, num_vertices(g)); //ex. 3 digit comb lock = 10^3
+   trials = (float)pow(numcolors, num_vertices(g)); //ex. 3 digit comb lock =
+   // 10^3
+   if (trials < 0)
+      trials = LargeValue;
 
    for (int i = 0; i < trials; i++) //runs for number of combinations
    {
@@ -123,7 +126,6 @@ void optimizeColorConflicts(Graph &g, int timelim, int& numcolors, string name)
          ofstream myfile;
          string out = ".output";
          myfile.open((name + out));
-         myfile << "Found it!!!!";
          myfile << "fewest number of conflicts: " << bestcon << endl;
          for (int bestsol = 0; bestsol < num_vertices(g); bestsol++)
          {
@@ -151,7 +153,8 @@ int main()
    getline(cin, filename, delim);
    getline(cin, input);
    ogfilename = filename + '.' + input;
-   fin.open(ogfilename.c_str());if (!fin) {
+   fin.open(ogfilename.c_str());
+   if (!fin) {
       cerr << "Cannot open " << ogfilename << endl;
       exit(1);
    }
