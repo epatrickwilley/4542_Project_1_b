@@ -166,7 +166,7 @@ int main()
 
       int timelim = 600;
       optimizeColorConflicts(g, timelim, colorlimit, filename);
-
+      
       cout << "Graph has now been optimized.";
       return(0);
    }
