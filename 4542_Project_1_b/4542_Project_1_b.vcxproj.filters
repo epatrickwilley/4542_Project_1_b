@@ -58,5 +58,20 @@
     <None Include="color192-8.input">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="color96-6.output">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="color96-7.output">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="color192-6.output">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="color192-7.output">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="color192-8.output">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
