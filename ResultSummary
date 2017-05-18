@@ -1,0 +1,5 @@
+Much like our Exhaustive Knapsack, we needed to test all possible combinations to find the best-case for each graph. What becomes more complex is the different states every item can hold, every node in the graph coloring scheme can have a different state for every possible color available. Much like a combination lock we end up with a number of combinations equal to: (Number of Colors) ^ (Number of Nodes). To test this, we looked to creating a base number converter. For example, if we wanted to progress through three colors for three nodes we get this:
+(3 colors) ^ (3 Nodes) = 27 Combinations
+000 001 002 010 011 012 020 021 022 100 101 102 110 … 222
+Where every color is represented with a number.
+This array of states or colors can be mapped easily to the nodes and tested for conflicts. The algorithm stops if a solution with no conflicts is reached.
